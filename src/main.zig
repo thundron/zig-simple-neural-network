@@ -1,9 +1,24 @@
 const std = @import("std");
 
 pub fn main() !void {
-    const input_layers = [_]f64{ 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1 };
+    const input_layers = [3][4]f64{ [4]f64{
+        0,
+        0,
+        1,
+        1,
+    }, [4]f64{
+        1,
+        1,
+        1,
+        0,
+    }, [4]f64{
+        1,
+        0,
+        1,
+        1,
+    } };
 
-    const output_layer = [_]f64{ 0, 1, 1, 0 };
+    const output_layer = [4]f64{ 0, 1, 1, 0 };
     var weights: [3]f64 = undefined;
 
     const rand = std.crypto.random;
