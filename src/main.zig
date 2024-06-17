@@ -29,13 +29,17 @@ pub fn main() !void {
     var iteration: u32 = 0;
     while (iteration < 10_000) : (iteration += 1) {
         var output: f64 = 0;
-        for (input_layers) |input| {
-            output += input * weights[iteration % 3];
+        for (input_layers) |layer| {
+            for (layer) |v| {
+                output += v * weights[iteration % 3];
+            }
         }
 
         output = 1 / (1 + std.math.exp(-output));
         for (&weights, 0..) |*w, i| {
-            w.* += input_layers[i] * (output_layer[0] - output) * output * (1 - output);
+            for (input_layers[i]) |v| {
+                w.* += v * (output_layer[0] - output) * output * (1 - output);
+            }
         }
     }
 
