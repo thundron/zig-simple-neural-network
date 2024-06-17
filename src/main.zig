@@ -35,6 +35,7 @@ pub fn main() !void {
             }
         }
 
+        // apply sigmoid fn
         output = 1 / (1 + std.math.exp(-output));
         for (&weights, 0..) |*w, i| {
             for (input_layers[i]) |v| {
