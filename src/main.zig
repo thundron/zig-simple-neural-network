@@ -145,6 +145,6 @@ pub fn main() !void {
         var output: [OUTPUT_NODES]f64 = undefined;
         var hiddenLayer: [HIDDEN_NODES]f64 = undefined;
         forward(&weights, inputs, &output, &hiddenLayer);
-        std.debug.print("Input: {:.2}, {:.2}, Predicted: {:.2}, Target: {:.2}\n", .{ inputs[0], inputs[1], output[0], data[2] });
+        std.debug.print("Input: {d}, {d}, Predicted: {d}, Target: {d}\n", .{ inputs[0], inputs[1], output[0], data[2] });
     }
 }
